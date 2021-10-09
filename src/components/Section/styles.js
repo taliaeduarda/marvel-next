@@ -8,7 +8,7 @@ const sectionStyle = {
   title: {
     ...title,
     marginBottom: "1rem",
-    marginTop: "5px",
+    marginTop: "35px",
     minHeight: "32px",
     textTransform: "uppercase",
     fontSize: "18px",

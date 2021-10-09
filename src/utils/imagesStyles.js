@@ -4,10 +4,14 @@ const imagesStyles = {
     marginLeft: "auto",
     marginRight: "auto",
     height: "auto",
-    "&:hover": {
-      transform: "scale(1.1)",
-      transition: "all .2s linear;",
-    },
+
+  },
+  imgHover: {
+width:  '100%',
+"&:hover": {
+  transform: "scale(1.1)",
+  transition: "all .2s linear;",
+},
   },
   imgRounded: {
     borderRadius: "6px !important",

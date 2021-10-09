@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
-import GridContainer from "../GridContainer";
-import GridItem from "../GridItem";
 import CardHero from "../Card";
+import { makeStyles } from "@material-ui/core/styles";
 
 import styles from "./styles";
 
@@ -15,23 +15,10 @@ export default function Section({ list }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.section}>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div>
       <h2 className={classes.title}>Characters List</h2>
       <div>
-        <GridContainer>
+        <Grid container>
           {list.map((l) => {
             const {
               id,
@@ -40,19 +27,23 @@ export default function Section({ list }) {
             } = l;
             return (
               <Link href={`/hero/${id}`} key={id}>
-                <GridItem xs={6} sm={6} md={4}>
+                <Grid item xs={6} sm={6} md={4}>
                   <CardHero
                     plain
                     name={name}
                     path={path}
                     extension={extension}
                   />
-                </GridItem>
+                </Grid>
               </Link>
             );
           })}
-        </GridContainer>
+        </Grid>
       </div>
     </div>
   );
 }
+
+Section.propTypes = {
+  list: PropTypes.array
+};

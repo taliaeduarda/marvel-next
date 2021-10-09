@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../theme";
+import { Header } from "../components/Header";
 
 import "../styles/global.scss";
 
@@ -25,6 +26,14 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header
+        color="transparent"
+        fixed
+        changeColorOnScroll={{
+          height: 400,
+          color: "white",
+        }}
+      />
       <Component
         {...pageProps}
         {...{

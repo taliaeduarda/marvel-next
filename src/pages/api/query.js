@@ -1,14 +1,14 @@
 import axios from "axios";
-import md5 from "md5";
+import MD5 from "crypto-js/md5";
 
 export default async function queryCharacters({ query: { query } }, res) {
-  const { name } = JSON.parse(query);
+  const { name } = JSON.parse(query)
   const url = "http://gateway.marvel.com/v1/public/characters";
-  const publicKey = process.env.NEXT_PUBLIC_MARVEL_PUBLIC_KEY;
-  const privateKey = process.env.NEXT_PUBLIC_MARVEL_PRIVATE_KEY
+  const publicKey = "3f98d6bd580f71c1d6ac771b20dd4f07";
+  const privateKey = "cffc60d400965fcaa5a5cc9310e48eae02ff51c9";
 
-  const timestamp = Number(new Date());
-  const hash = md5(timestamp + privateKey + publicKey);
+  const timestamp = Date.now();
+  const hash = MD5(timestamp + privateKey + publicKey).toString();
 
   try {
     let response;

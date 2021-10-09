@@ -1,13 +1,13 @@
 import Head from "next/head";
+import PropTypes from "prop-types";
 import getHeros from "../api/hero";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
 
-import { Header } from "../../components/Header";
-import GridContainer from "../../components/GridContainer";
-import GridItem from "../../components/GridItem";
+import classNames from "classnames";
+
+import Container from "../../components/Container";
 import Parallax from "../../components/Parallax";
 
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "./styles";
 const useStyles = makeStyles(styles);
 
@@ -30,39 +30,25 @@ export default function Hero({ hero }) {
       <Head>
         <title>{name} | Marvel Heroes</title>
       </Head>
-      <Header
-        color="transparent"
-        fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white",
-        }}
-      />
       <Parallax small filter image="../../../images/bg-profile.png" />
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div>
-          <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                  <div>
-                    <img
-                      src={`${path}/standard_xlarge.${extension}`}
-                      alt={name}
-                      className={imageClasses}
-                    />
-                  </div>
-                  <div className={classes.name}>
-                    <h3 className={classes.title}>{name}</h3>
-                    <p className={classes.description}>
-                      {description || "No description available"}
-                    </p>
-                  </div>
-                </div>
-              </GridItem>
-            </GridContainer>
+        <Container justify="center">
+          <div className={classes.profile}>
+            <div>
+              <img
+                src={`${path}/standard_xlarge.${extension}`}
+                alt={name}
+                className={imageClasses}
+              />
+            </div>
+            <div className={classes.name}>
+              <h3 className={classes.title}>{name}</h3>
+              <p className={classes.description}>
+                {description || "No description available"}
+              </p>
+            </div>
           </div>
-        </div>
+        </Container>
       </div>
     </div>
   );
@@ -71,10 +57,14 @@ export default function Hero({ hero }) {
 export async function getServerSideProps({ params }) {
   const { id } = params;
   const hero = await getHeros(id);
-
   return {
     props: {
       hero,
     },
   };
 }
+
+Hero.propTypes = {
+  hero: PropTypes.object,
+  
+};

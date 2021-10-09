@@ -1,11 +1,6 @@
-import { container, title } from "../utils/global-definitions";
+import { title } from "../utils/global-definitions";
 
 const styles = {
-  container: {
-    zIndex: "12",
-    color: "#FFFFFF",
-    ...container,
-  },
   title: {
     ...title,
     display: "inline-block",
@@ -14,11 +9,6 @@ const styles = {
     minHeight: "32px",
     color: "#FFFFFF",
     textTransform: "uppercase",
-  },
-  subtitle: {
-    fontSize: "1.313rem",
-    maxWidth: "500px",
-    margin: "10px auto 0",
   },
   main: {
     background: "#FFFFFF",

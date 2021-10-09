@@ -1,13 +1,14 @@
 import classNames from "classnames";
+import PropTypes from "prop-types";
+
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { CardActionArea } from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles";
-
 import styles from "./styles";
-
 const useStyles = makeStyles(styles);
 
 export default function CardHero(props) {
@@ -24,7 +25,8 @@ export default function CardHero(props) {
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
-    classes.imgFluid
+    classes.imgFluid,
+    classes.imgHover
   );
   return (
     <Card sx={{ maxWidth: 245 }} className={cardClasses}>

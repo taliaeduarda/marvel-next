@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
-import axios from "axios";
+import axios from 'axios'
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
@@ -26,8 +27,8 @@ export default function CustomInput(props) {
               name: hero,
             },
           },
-        });
-        const heroes = response?.data?.message?.data?.results;
+        })
+        const heroes = response?.data?.message?.data?.results
 
         if (heroes && heroes.length > 0) {
           setHeroList(heroes);
@@ -104,3 +105,10 @@ export default function CustomInput(props) {
     </FormControl>
   );
 }
+
+CustomInput.propTypes = {
+  success: PropTypes.bool,
+  labelText: PropTypes.node,
+  setLoaded: PropTypes.func,
+  setHeroList: PropTypes.func
+};

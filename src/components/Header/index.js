@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Hidden, Drawer, IconButton, Toolbar, AppBar } from "@material-ui/core";
+import { Toolbar, AppBar } from "@material-ui/core";
 
-import { Menu } from "@material-ui/icons";
 import styles from "./styles";
 
 const useStyles = makeStyles(styles);
 
 export function Header(props) {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -24,10 +23,6 @@ export function Header(props) {
       }
     };
   });
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
@@ -61,32 +56,27 @@ export function Header(props) {
         <div className={classes.flex}>
           <a href="/">Marvel Heroes</a>
         </div>
-        <Hidden smDown implementation="css">
-          Login
-        </Hidden>
-        <Hidden mdUp>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-          >
-            <Menu />
-          </IconButton>
-        </Hidden>
       </Toolbar>
-      <Hidden implementation="js">
-        <Drawer
-          variant="temporary"
-          anchor={"right"}
-          open={mobileOpen}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          onClose={handleDrawerToggle}
-        >
-          <div className={classes.appResponsive}>Login</div>
-        </Drawer>
-      </Hidden>
     </AppBar>
   );
 }
+
+Header.propTypes = {
+  color: PropTypes.oneOf([
+    "primary",
+    "success",
+    "transparent",
+    "white",
+  ]),
+  rightLinks: PropTypes.node,
+  fixed: PropTypes.bool,
+  changeColorOnScroll: PropTypes.shape({
+    height: PropTypes.number.isRequired,
+    color: PropTypes.oneOf([
+      "primary",
+      "success",
+      "transparent",
+      "white",
+    ]).isRequired,
+  }),
+};

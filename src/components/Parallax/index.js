@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -48,3 +48,13 @@ export default function Parallax(props) {
     </div>
   );
 }
+
+Parallax.propTypes = {
+  className: PropTypes.string,
+  filter: PropTypes.bool,
+  children: PropTypes.node,
+  style: PropTypes.string,
+  image: PropTypes.string,
+  small: PropTypes.bool,
+};
+
