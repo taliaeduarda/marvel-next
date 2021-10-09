@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import classNames from "classnames";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import { Hidden, Drawer, IconButton, Toolbar, AppBar } from "@material-ui/core";
 
-import Menu from "@material-ui/icons/Menu";
+import { Menu } from "@material-ui/icons";
 import styles from "./styles";
 
 const useStyles = makeStyles(styles);
@@ -65,9 +59,7 @@ export function Header(props) {
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
-          <a className={classes.title} href="/">
-            Marvel Heroes
-          </a>
+          <a href="/">Marvel Heroes</a>
         </div>
         <Hidden smDown implementation="css">
           Login

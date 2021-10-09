@@ -9,6 +9,7 @@ const containerFluid = {
   marginLeft: "auto",
   width: "100%",
 };
+
 const container = {
   ...containerFluid,
   "@media (min-width: 576px)": {
@@ -75,6 +76,7 @@ const title = {
 const cardTitle = {
   ...title,
   marginTop: ".625rem",
+  textAlign: "center"
 };
 
 const cardSubtitle = {

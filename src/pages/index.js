@@ -29,7 +29,7 @@ export default function Home(props) {
         fixed
         changeColorOnScroll={{
           height: 400,
-          color: "white",
+          color: "#555",
         }}
       />
       <Parallax filter image="images/bg-marvel.jpg">

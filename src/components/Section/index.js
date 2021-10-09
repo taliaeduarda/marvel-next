@@ -16,7 +16,20 @@ export default function Section({ list }) {
 
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Marvel Characters List</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2 className={classes.title}>Characters List</h2>
       <div>
         <GridContainer>
           {list.map((l) => {

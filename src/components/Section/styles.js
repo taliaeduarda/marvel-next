@@ -8,9 +8,10 @@ const sectionStyle = {
   title: {
     ...title,
     marginBottom: "1rem",
-    marginTop: "30px",
+    marginTop: "5px",
     minHeight: "32px",
     textTransform: "uppercase",
+    fontSize: "18px",
   },
   ...imagesStyle,
   itemGrid: {

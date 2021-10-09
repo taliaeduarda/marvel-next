@@ -6,9 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
-import InputAdornment from "@material-ui/core/InputAdornment"
-import IconButton from '@material-ui/core/IconButton'
-import SearchIcon from  '@material-ui/icons'
 
 import styles from "./styles";
 const useStyles = makeStyles(styles);
@@ -80,7 +77,11 @@ export default function CustomInput(props) {
 
   const inputClasses = classNames({
     [classes.input]: true,
-
+  });
+  const underlineClasses = classNames({
+    [classes.underlineError]: error,
+    [classes.underlineSuccess]: success && !error,
+    [classes.underline]: true
   });
 
   return (
@@ -90,26 +91,13 @@ export default function CustomInput(props) {
       </InputLabel>
 
       <Input
-            type='text'
-          
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                >
-                  <SearchIcon /> 
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-
-      <Input
         value={hero}
         onChange={handleInputChange}
         onKeyUp={handleKeyUp}
         classes={{
           input: inputClasses,
           disabled: classes.disabled,
+          underline: underlineClasses,
         }}
       />
       <div style={{ color: "black" }}>{error && errorMessage()}</div>

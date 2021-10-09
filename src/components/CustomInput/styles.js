@@ -1,6 +1,17 @@
 import { successColor, defaultFont } from "../../utils/global-definitions";
 
 const customInputStyle = {
+  disabled: {
+    "&:before": {
+      borderColor: "transparent !important",
+    },
+  },
+  underline: {
+    "&:hover:not($disabled):before,&:before": {
+      borderColor: "#D2D2D2 !important",
+      borderWidth: "1px !important",
+    },
+  },
   underlineSuccess: {
     "&:after": {
       borderColor: successColor,
@@ -10,7 +21,7 @@ const customInputStyle = {
     ...defaultFont,
     color: "#AAAAAA !important",
     fontWeight: "400",
-    fontSize: "14px",
+    fontSize: "16px",
     lineHeight: "1.42857",
     top: "10px",
     letterSpacing: "unset",
@@ -25,6 +36,7 @@ const customInputStyle = {
   },
   input: {
     color: "#495057",
+    width: "250px",
     height: "unset",
     "&,&::placeholder": {
       fontSize: "14px",
