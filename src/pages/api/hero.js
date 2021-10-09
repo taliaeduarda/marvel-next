@@ -20,7 +20,6 @@ export default async function getHeros(id) {
         },
       });
       if (response) {
-        console.log(response);
         characters = response.data.data.results[0];
       }
     } else {
