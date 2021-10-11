@@ -1,17 +1,14 @@
 const imagesStyles = {
-  imgFluid: {
-    maxWidth: "60%",
+  imgCardFluid: {
+    maxWidth: "auto",
     marginLeft: "auto",
     marginRight: "auto",
-    height: "auto",
-
   },
   imgHover: {
-width:  '100%',
-"&:hover": {
-  transform: "scale(1.1)",
-  transition: "all .2s linear;",
-},
+    "&:hover": {
+      transform: "scale(1.1)",
+      transition: "all .2s linear;",
+    },
   },
   imgRounded: {
     borderRadius: "6px !important",
@@ -38,7 +35,7 @@ width:  '100%',
     borderBottomRightRadius: "calc(.25rem - 1px)",
   },
   imgCard: {
-    width: "100%",
+    width: "auto",
     borderRadius: "calc(.25rem - 1px)",
   },
   imgCardOverlay: {

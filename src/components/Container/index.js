@@ -7,12 +7,12 @@ import styles from "./styles";
 const useStyles = makeStyles(styles);
 
 export default function Container(props) {
-    const classes = useStyles();
-    const { children } = props;
+  const classes = useStyles();
+  const { children } = props;
   return (
     <Grid container className={classes.container}>
       <Grid item className={classes.gridItem}>
-      {children}
+        {children}
       </Grid>
     </Grid>
   );

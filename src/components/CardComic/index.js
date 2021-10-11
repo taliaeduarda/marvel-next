@@ -10,14 +10,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "./styles";
 const useStyles = makeStyles(styles);
 
-export default function CardHero(props) {
+export default function CardComic(props) {
+  const { className, plain, title, path, extension } = props;
   const classes = useStyles();
-  const { className, plain, carousel, name, path, extension } = props;
 
   const cardClasses = classNames({
     [classes.card]: true,
     [classes.cardPlain]: plain,
-    [classes.cardCarousel]: carousel,
     [className]: className !== undefined,
   });
 
@@ -27,13 +26,13 @@ export default function CardHero(props) {
     classes.imgHover
   );
   return (
-    <Card sx={{ maxWidth: 245 }} className={cardClasses}>
+    <Card sx={{ minWidth: 255 }} className={cardClasses}>
       <CardActionArea>
         <CardMedia
+          height="220"
           component="img"
-          height="200"
           image={`${path}/standard_xlarge.${extension}`}
-          alt={name}
+          alt={title}
           className={imageClasses}
         />
         <CardContent>
@@ -43,7 +42,7 @@ export default function CardHero(props) {
             component="div"
             className={classes.cardTitle}
           >
-            {name}
+            {title}
           </Typography>
         </CardContent>
       </CardActionArea>

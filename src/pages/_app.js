@@ -8,8 +8,6 @@ import { Header } from "../components/Header";
 import "../styles/global.scss";
 
 export default function MyApp({ Component, pageProps }) {
-  const [heroList, setHeroList] = useState([]);
-  const [chosenHero, setChosenHero] = useState();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -26,21 +24,10 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header
-        color="transparent"
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "white",
-        }}
-      />
+      <Header />
       <Component
         {...pageProps}
         {...{
-          heroList,
-          setHeroList,
-          chosenHero,
-          setChosenHero,
           loaded,
           setLoaded,
         }}

@@ -1,42 +1,55 @@
 import { container, title } from "../../utils/global-definitions";
-
 import imagesStyle from "../../utils/imagesStyles";
 
 const profilePageStyle = {
   container,
   profile: {
-    textAlign: "center",
+    display: "flex",
+    flexDirection: "row",
+    "@media (max-width: 576px)": {
+      flexDirection: "column",
+    },
+    "& h3": {
+      fontWeight: "600",
+      color: "#ffffff",
+    },
     "& img": {
-      maxWidth: "160px",
-      width: "100%",
-      margin: "0 auto",
+      maxWidth: "250px",
+      height: "290px",
       transform: "translate3d(0, -50%, 0)",
+    },
+  },
+  info: {
+    color: "#FFFFF",
+    marginLeft: "100px",
+    "@media (max-width: 776px)": {
+      transform: "translate3d(0, -40%, 0)",
+    },
+    "@media (max-width: 576px)": {
+      margin: "auto",
     },
   },
   description: {
     margin: "1rem auto",
-    maxWidth: "600px",
-    textAlign: "center !important",
-    fontSize: "1.1rem",
-    color: "#555"
+    maxWidth: "700px",
+    fontSize: ".9rem",
   },
   name: {
     marginTop: "-80px",
   },
   ...imagesStyle,
   main: {
-    background: "#FFFFFF",
+    background: "black",
     position: "relative",
     zIndex: "3",
   },
   mainRaised: {
     "@media (max-width: 576px)": {
-      margin: "0px 5px 0px",
+      margin: "-20px 5px 0px",
     },
     "@media (min-width: 576px)": {
       margin: "-20px 30px 0px",
     },
-
     "@media (min-width: 992px)": {
       margin: "-60px 30px 0px",
     },
@@ -48,11 +61,8 @@ const profilePageStyle = {
     ...title,
     display: "inline-block",
     position: "relative",
-    marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    color: "#151515",
-    fontSize: '1.5rem',
   },
 };
 

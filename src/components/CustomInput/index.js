@@ -1,37 +1,42 @@
 import { useCallback, useState } from "react";
-import axios from 'axios'
 import classNames from "classnames";
 import PropTypes from "prop-types";
+
+import getHeros from "../../pages/api/hero";
+import getComics from "../../pages/api/comics";
 
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 
+import { FiSearch } from 'react-icons/fi'
+
 import styles from "./styles";
 const useStyles = makeStyles(styles);
 
 export default function CustomInput(props) {
-  const { setLoaded, setHeroList, labelText, success } = props;
-  const [hero, setHero] = useState("");
+  const { setLoaded, setList, labelText, id } = props;
+  const [value, setValue] = useState("");
   const [error, setError] = useState(null);
 
   const handleClick = useCallback(async () => {
-    if (hero) {
+    if (value) {
       setLoaded(false);
-
+     
       try {
-        const response = await axios.get(`/api/query`, {
-          params: {
-            query: {
-              name: hero,
-            },
-          },
-        })
-        const heroes = response?.data?.message?.data?.results
+        let response;
+        if (id === 1) {
+          const title = value;
+          response = await getComics({ title });
+        } else {
+          const hero = value;
+          response = await getHeros({ hero });
+        }
+        const data = response;
 
-        if (heroes && heroes.length > 0) {
-          setHeroList(heroes);
+        if (data && data.length > 0) {
+          setList(data);
           setLoaded(true);
         } else {
           setError("not-found");
@@ -45,10 +50,10 @@ export default function CustomInput(props) {
     } else {
       setError("empty");
     }
-  }, [hero, setLoaded, setHeroList]);
+  }, [value, setLoaded, setList]);
 
   const handleInputChange = useCallback(({ target: { value } }) => {
-    setHero(value);
+    setValue(value);
   }, []);
 
   const handleKeyUp = useCallback(
@@ -63,7 +68,7 @@ export default function CustomInput(props) {
   const errorMessage = () => {
     switch (error) {
       case "not-found":
-        return "Hero not found, try another one";
+        return "value not found, try another one";
       case "empty":
         return "Empty? Are you sure?";
       default:
@@ -72,27 +77,27 @@ export default function CustomInput(props) {
   };
 
   const classes = useStyles();
-  const labelClasses = classNames({
-    [" " + classes.labelRootSuccess]: success,
-  });
+  const labelClasses = classNames(
+    classes.labelRoot,
+  );
 
   const inputClasses = classNames({
     [classes.input]: true,
   });
   const underlineClasses = classNames({
     [classes.underlineError]: error,
-    [classes.underlineSuccess]: success && !error,
-    [classes.underline]: true
+    [classes.underline]: true,
   });
 
   return (
     <FormControl className={classes.formControl}>
       <InputLabel className={classes.labelRoot + " " + labelClasses}>
+        <FiSearch />
         {labelText}
       </InputLabel>
 
       <Input
-        value={hero}
+        value={value}
         onChange={handleInputChange}
         onKeyUp={handleKeyUp}
         classes={{
@@ -107,8 +112,7 @@ export default function CustomInput(props) {
 }
 
 CustomInput.propTypes = {
-  success: PropTypes.bool,
   labelText: PropTypes.node,
   setLoaded: PropTypes.func,
-  setHeroList: PropTypes.func
+  setList: PropTypes.func,
 };

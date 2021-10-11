@@ -1,35 +1,34 @@
 import Head from "next/head";
 import PropTypes from "prop-types";
-import getHeros from "../api/hero";
+import getComics from "../api/comics";
 
 import classNames from "classnames";
 
 import Container from "../../components/Container";
 import Parallax from "../../components/Parallax";
-import Footer from "../../components/Footer";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+import Footer from "../../components/Footer";
 const useStyles = makeStyles(styles);
 
-export default function Hero({ hero }) {
-  const classes = useStyles();
+export default function Comic({ comic }) {
   const {
-    name,
+    title,
     thumbnail: { path, extension },
     description,
-  } = hero;
-
+    series: { name },
+  } = comic;
+  const classes = useStyles();
+  
   const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
+    classes.imgInfo
   );
 
   return (
     <div>
       <Head>
-        <title>{name} | Marvel Heroes</title>
+        <title>{title} | Comics</title>
       </Head>
       <Parallax small filter image="../../../images/bg-profile.png" />
       <div className={classNames(classes.main, classes.mainRaised)}>
@@ -38,12 +37,13 @@ export default function Hero({ hero }) {
             <div>
               <img
                 src={`${path}/standard_xlarge.${extension}`}
-                alt={name}
+                alt={title}
                 className={imageClasses}
               />
             </div>
-            <div className={classes.name}>
-              <h3 className={classes.title}>{name}</h3>
+            <div className={classes.info}>
+              <h3>{title}</h3>
+              <p span={classes.description}>Series: {name}</p>
               <p className={classes.description}>
                 {description || "No description available"}
               </p>
@@ -51,21 +51,22 @@ export default function Hero({ hero }) {
           </div>
         </Container>
       </div>
-      <Footer />
+      <Footer></Footer>
     </div>
   );
 }
 
 export async function getServerSideProps({ params }) {
   const { id } = params;
-  const hero = await getHeros({ id });
+  const comicId = id;
+  const comic = await getComics({ comicId });
   return {
     props: {
-      hero,
+      comic,
     },
   };
 }
 
-Hero.propTypes = {
-  hero: PropTypes.object,
+Comic.propTypes = {
+  comic: PropTypes.object,
 };

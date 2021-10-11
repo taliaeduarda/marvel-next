@@ -6,17 +6,11 @@ const styles = {
     color: "#FFFFFF",
     ...container,
   },
-    grid: {
-      marginRight: "-15px",
-      marginLeft: "-15px",
-      width: "auto",
-    },
     gridItem: {
     position: "relative",
-    width: "100%",
+    marginLeft: '20px',
+    marginRight: '20px',
     minHeight: "1px",
-    paddingRight: "15px",
-    paddingLeft: "15px",
     flexBasis: "auto",
   },
   };

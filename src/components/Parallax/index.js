@@ -8,7 +8,6 @@ const useStyles = makeStyles(styles);
 
 export default function Parallax(props) {
   let windowScrollTop;
-
   const [transform, setTransform] = useState(
     "translate3d(0," + windowScrollTop + "px,0)"
   );

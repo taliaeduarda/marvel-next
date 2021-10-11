@@ -23,7 +23,7 @@ const customInputStyle = {
     fontWeight: "400",
     fontSize: "16px",
     lineHeight: "1.42857",
-    top: "10px",
+    top: "15px",
     letterSpacing: "unset",
   },
   formControl: {
@@ -32,6 +32,7 @@ const customInputStyle = {
     position: "relative",
     "& svg,& .fab,& .far,& .fal,& .fas,& .material-icons": {
       color: "#495057",
+      marginRight: '10px',
     },
   },
   input: {

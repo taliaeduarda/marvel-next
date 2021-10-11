@@ -3,8 +3,6 @@ const transition = {
 };
 
 const containerFluid = {
-  paddingRight: "15px",
-  paddingLeft: "15px",
   marginRight: "auto",
   marginLeft: "auto",
   width: "100%",
@@ -26,20 +24,10 @@ const container = {
   },
 };
 
+
 const boxShadow = {
   boxShadow:
     "0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
-};
-
-const card = {
-  display: "inline-block",
-  position: "relative",
-  width: "100%",
-  margin: "25px 0",
-  boxShadow: "0 1px 4px 0 rgba(0, 0, 0, 0.14)",
-  borderRadius: "3px",
-  color: "rgba(0, 0, 0, 0.87)",
-  background: "#fff",
 };
 
 const defaultFont = {
@@ -47,6 +35,7 @@ const defaultFont = {
   fontWeight: "300",
   lineHeight: "1.5em",
 };
+
 
 const primaryColor = "#9c27b0";
 const grayColor = "#999999";
@@ -67,16 +56,16 @@ const defaultBoxShadow = {
 };
 
 const title = {
-  color: "#3C4858",
   margin: "1.75rem 0 0.875rem",
   fontWeight: "700",
   fontFamily: `"Roboto", sans-serif`,
+  fontSize: "1rem",
 };
 
 const cardTitle = {
   ...title,
   marginTop: ".625rem",
-  textAlign: "center"
+  textAlign: "center",
 };
 
 const cardSubtitle = {
@@ -90,7 +79,6 @@ export {
   container,
   containerFluid,
   boxShadow,
-  card,
   defaultFont,
   primaryColor,
   grayColor,
