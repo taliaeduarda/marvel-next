@@ -76,6 +76,7 @@ export default function Home(props) {
 export async function getStaticProps() {
   const response = await getComics({});
   const data = await getHeros({});
+  
   const comicsList = response;
   const characters = data;
   return {

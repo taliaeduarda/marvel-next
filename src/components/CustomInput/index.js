@@ -50,7 +50,7 @@ export default function CustomInput(props) {
     } else {
       setError("empty");
     }
-  }, [value, setLoaded, setList]);
+  }, [id, value, setLoaded, setList]);
 
   const handleInputChange = useCallback(({ target: { value } }) => {
     setValue(value);
