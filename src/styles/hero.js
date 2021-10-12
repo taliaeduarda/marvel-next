@@ -1,8 +1,8 @@
-import { container, title } from "../../utils/global-definitions";
+import { container, title } from "../utils/global-definitions";
 
-import imagesStyle from "../../utils/imagesStyles";
+import imagesStyle from "../utils/imagesStyles";
 
-const profilePageStyle = {
+const heroStyles = {
   container,
   profile: {
     textAlign: "center",
@@ -56,4 +56,4 @@ const profilePageStyle = {
   },
 };
 
-export default profilePageStyle;
+export default heroStyles;

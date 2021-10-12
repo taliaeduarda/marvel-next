@@ -9,7 +9,7 @@ import Parallax from "../../components/Parallax";
 import Footer from "../../components/Footer";
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "./styles";
+import styles from "../../styles/hero";
 const useStyles = makeStyles(styles);
 
 export default function Hero({ hero }) {

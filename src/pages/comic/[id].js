@@ -8,7 +8,7 @@ import Container from "../../components/Container";
 import Parallax from "../../components/Parallax";
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "./styles";
+import styles from "../../styles/comic";
 import Footer from "../../components/Footer";
 const useStyles = makeStyles(styles);
 

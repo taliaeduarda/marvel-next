@@ -14,7 +14,7 @@ import CustomInput from "../components/CustomInput";
 import Container from "../components/Container";
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "./styles";
+import styles from "../styles/home";
 import Footer from "../components/Footer";
 const useStyles = makeStyles(styles);
 

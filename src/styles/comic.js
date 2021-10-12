@@ -1,7 +1,7 @@
 import { container, title } from "../../utils/global-definitions";
 import imagesStyle from "../../utils/imagesStyles";
 
-const profilePageStyle = {
+const comicStyles = {
   container,
   profile: {
     display: "flex",
@@ -66,4 +66,4 @@ const profilePageStyle = {
   },
 };
 
-export default profilePageStyle;
+export default comicStyles;

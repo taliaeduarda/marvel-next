@@ -1,6 +1,6 @@
 import { title } from "../utils/global-definitions";
 
-const styles = {
+const homeStyles = {
   title: {
     ...title,
     display: "inline-block",
@@ -35,4 +35,4 @@ const styles = {
   },
 };
 
-export default styles;
+export default homeStyles;
