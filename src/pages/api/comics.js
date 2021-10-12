@@ -1,9 +1,9 @@
 import axios from "axios";
 import MD5 from "crypto-js/md5";
 
-const url = "https://gateway.marvel.com/v1/public/comics";
-const publicKey = process.env.MARVEL_PUBLIC;
-const privateKey = process.env.MARVEL_PRIVATE;
+const url = "https://gateway.marvel.com/v1/public/comics"
+const publicKey = "3f98d6bd580f71c1d6ac771b20dd4f07"
+const privateKey = 'cffc60d400965fcaa5a5cc9310e48eae02ff51c9'
 
 export default async function getComics({ comicId, title }) {
  
