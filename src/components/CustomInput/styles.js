@@ -1,4 +1,4 @@
-import { successColor, defaultFont } from "../../utils/global-definitions";
+import { defaultFont } from "../../utils/global-definitions";
 
 const customInputStyle = {
   disabled: {
@@ -10,11 +10,6 @@ const customInputStyle = {
     "&:hover:not($disabled):before,&:before": {
       borderColor: "#D2D2D2 !important",
       borderWidth: "1px !important",
-    },
-  },
-  underlineSuccess: {
-    "&:after": {
-      borderColor: successColor,
     },
   },
   labelRoot: {
