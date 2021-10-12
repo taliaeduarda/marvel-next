@@ -4,8 +4,8 @@ import MD5 from "crypto-js/md5";
 const url = "http://gateway.marvel.com/v1/public/characters";
 
 export default async function getHeros({ hero, id }) {
-  const publicKey = process.env.NEXT_PUBLIC_MARVEL_PUBLIC;
-  const privateKey = process.env.NEXT_PUBLIC_MARVEL_PRIVATE;
+  const publicKey = process.env.MARVEL_PUBLIC;
+  const privateKey = process.env.MARVEL_PRIVATE;
 
   const timestamp = Date.now();
   const hash = MD5(timestamp + privateKey + publicKey).toString();
