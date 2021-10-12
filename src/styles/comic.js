@@ -1,5 +1,5 @@
-import { container, title } from "../../utils/global-definitions";
-import imagesStyle from "../../utils/imagesStyles";
+import { container, title } from "../utils/global-definitions";
+import imagesStyle from "../utils/imagesStyles";
 
 const comicStyles = {
   container,
