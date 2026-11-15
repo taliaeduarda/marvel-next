@@ -1,18 +1,28 @@
-# Marvel Next 
+# Marvel Next
 
-## Technologies used
+Catálogo de personagens e quadrinhos da Marvel em Next.js, consumindo a API oficial da Marvel. Busca por personagem, página de detalhe de cada herói e de cada quadrinho, com cabeçalho em parallax e tema customizado do Material UI.
 
-- [React](https://reactjs.org/)
-- [Material UI](https:/https://mui.com/pt/) - A customizable, and accessible library of foundational and advanced components for React.
-- [Next.js](https://nextjs.org/) - a React Framework that renders pages statically on build then caches new requested pages on-the-go. It also offers an API capability that makes Marvel API work like a charm.
-- [Vercel](https://vercel.com) - hosts the website and powers up Next functionalities
+## O que tem aqui
 
-## How to run
+- Rotas de API do Next.js (`/api/hero` e `/api/comics`) que funcionam como proxy: montam o hash MD5 exigido pela Marvel e mantêm a chave privada só no servidor.
+- Páginas dinâmicas `hero/[id]` e `comic/[id]` com dados carregados por id.
+- Componentes de card, listas de personagens e quadrinhos, input de busca e efeito parallax.
+- Tema próprio do Material UI e estilos globais em Sass.
+
+## Stack
+
+Next.js, React, Material UI, Sass, axios.
+
+## Como rodar
+
+Crie uma conta em https://developer.marvel.com e gere o par de chaves. Depois:
 
 ```bash
+cp .env.example .env.local   # preencha MARVEL_PUBLIC_KEY e MARVEL_PRIVATE_KEY
 yarn
-# and
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Status
+
+Projeto pessoal de 2021, funcional. A demo antiga na Vercel foi desativada. Em novembro de 2026 as chaves da API foram removidas do código e passaram para variáveis de ambiente.
